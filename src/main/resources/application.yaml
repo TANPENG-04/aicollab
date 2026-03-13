@@ -1,0 +1,49 @@
+# ==================== 核心配置 ====================
+spring:
+  application:
+    name: aicollab
+  threads:
+    virtual:
+      enabled: true # 启用虚拟线程 (需要 Java 19+)
+  # ==================== H2 数据库配置 ====================
+  datasource:
+    url: jdbc:h2:mem:aicollabdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  # H2 控制台（浏览器访问 http://localhost:8080/h2-console 测试用）
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  # ==================== JPA 配置 ====================
+  jpa:
+    hibernate:
+      ddl-auto: update # 自动创建/更新表
+    show-sql: true # 控制台打印 SQL（开发时看）
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+
+# Server configuration (服务器配置)
+server:
+  port: 8080
+
+# ==================== Swagger 配置 ====================
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+# ==================== LangChain4j AI 配置 ====================
+langchain4j:
+  open-ai:
+    chat-model:
+      api-key: sk-1377291ba842440f993b380b5c0c9d7c
+      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+      model-name: qwen-plus
+  chat-memory:
+    enabled: true
