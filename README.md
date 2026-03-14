@@ -13,7 +13,7 @@
 
 ## 🚀 技术亮点
 - Java 21 Virtual Threads（高并发实时协作）
-- Spring Boot 4.0 + JPA + JWT
+- Spring Boot 3.5.11 + JPA + JWT
 - LangChain4j RAG AI（文档智能总结）
 - Docker + GraalVM Native Image（秒级启动）
 
